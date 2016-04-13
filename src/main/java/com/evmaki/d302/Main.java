@@ -1,5 +1,6 @@
 package com.evmaki.d302;
 
+import com.evmaki.d302.rfidreader.Messages;
 import com.evmaki.d302.rfidreader.RFIDReader;
 import com.evmaki.d302.wedge.KeyboardWedge;
 
@@ -19,7 +20,7 @@ public class Main {
         while(rfidReader.isConnected()) {
             try {
                 String text = rfidReader.scan();
-                if(!text.equals("-1")) {
+                if(!text.equals("-1") && !text.equals("210033")) {
                     wedge.type(text);
                 }
                 Thread.sleep(sleepTime);
